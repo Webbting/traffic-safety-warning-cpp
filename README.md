@@ -11,7 +11,7 @@
 | 檔案 | 說明 |
 |---|---|
 | `src/main.cpp` | C++ 主程式，負責讀取資料、計算危險分數、輸出結果 |
-| `data/sample_detections.csv` | 範例偵測資料，報告展示時可以直接拿來跑 |
+| `data/sample_detections.csv` | 範例偵測資料 |
 | `CMakeLists.txt` | CMake 編譯設定 |
 | `build_windows.bat` | Windows 編譯腳本 |
 | `build_mac.sh` | Mac 編譯腳本 |
@@ -160,8 +160,6 @@ CSV 的每一列代表某一個時間點偵測到的一個物件。
 | `speed` | 車輛估算速度 |
 | `alert` | 對應警示燈與聲音 |
 | `reason` | 這次判斷危險的主要原因 |
-
-報告展示時，可以先執行 CSV 範例資料，讓大家看到車輛靠近行人時，危險等級會從安全逐漸升高。
 
 ## 期末報告重點
 
