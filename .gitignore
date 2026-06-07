@@ -1,0 +1,26 @@
+# Build outputs
+build/
+build-mac/
+*.exe
+*.obj
+*.o
+*.out
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Local / temporary files
+outputs/
+zz_不用看_舊資料封存/
+~$*
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Report folder: keep only formal deliverables
+reports/*
+!reports/AI車輛與行人辨識警示系統_Cpp期末報告PPT_正式版.pptx
+!reports/教授版_程式設計期末報告_AI車輛與行人辨識警示系統_正式版.docx
