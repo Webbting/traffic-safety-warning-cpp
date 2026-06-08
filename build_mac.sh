@@ -18,5 +18,5 @@ echo "Build complete:"
 echo "  $ROOT/build-mac/traffic_safety_ai"
 echo
 echo "Try:"
-echo "  ./build-mac/traffic_safety_ai --demo"
 echo "  ./build-mac/traffic_safety_ai --csv data/sample_detections.csv"
+echo "  ./build-mac/traffic_safety_ai --csv data/sample_detections.csv --meters-per-pixel 0.05 --fps 1"

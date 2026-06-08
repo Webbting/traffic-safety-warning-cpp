@@ -33,4 +33,4 @@ echo Build complete:
 echo   %ROOT%build\traffic_safety_ai.exe
 echo.
 echo Try:
-echo   "%ROOT%build\traffic_safety_ai.exe" --demo
+echo   "%ROOT%build\traffic_safety_ai.exe" --csv data\sample_detections.csv

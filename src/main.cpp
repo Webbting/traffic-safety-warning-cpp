@@ -144,30 +144,6 @@ vector<Detection> loadCsv(string filename) {
     return detections;
 }
 
-vector<Detection> demoData() {
-    vector<Detection> data;
-
-    data.push_back({0, "person", "p1", {290, 180, 50, 120}, 0.94});
-    data.push_back({0, "vehicle", "c1", {40, 190, 120, 70}, 0.90});
-
-    data.push_back({1, "person", "p1", {290, 180, 50, 120}, 0.95});
-    data.push_back({1, "vehicle", "c1", {95, 190, 120, 70}, 0.92});
-
-    data.push_back({2, "person", "p1", {290, 180, 50, 120}, 0.96});
-    data.push_back({2, "vehicle", "c1", {160, 188, 120, 72}, 0.93});
-
-    data.push_back({3, "person", "p1", {290, 180, 50, 120}, 0.96});
-    data.push_back({3, "vehicle", "c1", {225, 186, 120, 74}, 0.94});
-
-    data.push_back({4, "person", "p1", {290, 180, 50, 120}, 0.96});
-    data.push_back({4, "vehicle", "c1", {280, 184, 120, 74}, 0.94});
-
-    data.push_back({5, "person", "p1", {290, 180, 50, 120}, 0.96});
-    data.push_back({5, "vehicle", "c1", {340, 184, 120, 74}, 0.94});
-
-    return data;
-}
-
 vector<Detection> getFrameObjects(vector<Detection> detections, int frame, string type) {
     vector<Detection> result;
 
@@ -351,7 +327,6 @@ void printHelp() {
     cout << "AI vehicle and pedestrian warning system" << endl;
     cout << endl;
     cout << "Usage:" << endl;
-    cout << "  ./traffic_safety_ai --demo" << endl;
     cout << "  ./traffic_safety_ai --csv data/sample_detections.csv" << endl;
     cout << "  ./traffic_safety_ai --csv data/sample_detections.csv --meters-per-pixel 0.05 --fps 1" << endl;
     cout << "  ./traffic_safety_ai --csv data/sample_detections.csv --meters-per-pixel 0.05 --fps 50" << endl;
@@ -364,18 +339,12 @@ int main(int argc, char* argv[]) {
     double fps = 1.0;
     double metersPerPixel = 0.0;
 
-    if (argc == 1) {
-        detections = demoData();
-    }
-
     for (int i = 1; i < argc; i++) {
         string arg = argv[i];
 
         if (arg == "--help") {
             printHelp();
             return 0;
-        } else if (arg == "--demo") {
-            detections = demoData();
         } else if (arg == "--csv" && i + 1 < argc) {
             detections = loadCsv(argv[i + 1]);
             i++;
@@ -397,7 +366,7 @@ int main(int argc, char* argv[]) {
     }
 
     if (detections.empty()) {
-        cout << "No detection data. Please use --demo or --csv." << endl;
+        cout << "No detection data. Please use --csv." << endl;
         printHelp();
         return 1;
     }
