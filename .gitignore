@@ -14,13 +14,14 @@ Makefile
 
 # Local / temporary files
 outputs/
+src/output/
 zz_不用看_舊資料封存/
+.recovered_word_temp_files_20260608/
+filename_recovery_map_*.tsv
 ~$*
 *.tmp
 .DS_Store
 Thumbs.db
 
-# Report folder: keep only formal deliverables
+# Report deliverables stay local; keep GitHub focused on code.
 reports/*
-!reports/AI車輛與行人辨識警示系統_Cpp期末報告PPT_正式版.pptx
-!reports/教授版_程式設計期末報告_AI車輛與行人辨識警示系統_正式版.docx
