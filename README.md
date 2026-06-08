@@ -86,10 +86,16 @@ chmod +x build_mac.sh
 ./build-mac/traffic_safety_ai --csv data/sample_detections.csv
 ```
 
-如果想把像素距離換算成公尺與公里時，可以加上比例參數：
+如果想把像素距離換算成公尺與公里時，可以加上比例參數。這份範例 CSV 把每個 `frame` 當成 1 秒一個時間點，所以這裡也明確設定 `--fps 1`：
 
 ```zsh
-./build-mac/traffic_safety_ai --csv data/sample_detections.csv --meters-per-pixel 0.05
+./build-mac/traffic_safety_ai --csv data/sample_detections.csv --meters-per-pixel 0.05 --fps 1
+```
+
+`--fps` 代表每秒有幾個 frame，可依照資料來源調整，程式最高允許設定到 50 fps：
+
+```zsh
+./build-mac/traffic_safety_ai --csv data/sample_detections.csv --meters-per-pixel 0.05 --fps 50
 ```
 
 ## CSV 資料格式

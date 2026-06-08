@@ -353,12 +353,15 @@ void printHelp() {
     cout << "Usage:" << endl;
     cout << "  ./traffic_safety_ai --demo" << endl;
     cout << "  ./traffic_safety_ai --csv data/sample_detections.csv" << endl;
-    cout << "  ./traffic_safety_ai --csv data/sample_detections.csv --meters-per-pixel 0.05" << endl;
+    cout << "  ./traffic_safety_ai --csv data/sample_detections.csv --meters-per-pixel 0.05 --fps 1" << endl;
+    cout << "  ./traffic_safety_ai --csv data/sample_detections.csv --meters-per-pixel 0.05 --fps 50" << endl;
 }
 
 int main(int argc, char* argv[]) {
+    const double maxFps = 50.0;
+
     vector<Detection> detections;
-    double fps = 10.0;
+    double fps = 1.0;
     double metersPerPixel = 0.0;
 
     if (argc == 1) {
@@ -381,6 +384,14 @@ int main(int argc, char* argv[]) {
             i++;
         } else if (arg == "--fps" && i + 1 < argc) {
             fps = stod(argv[i + 1]);
+            if (fps <= 0) {
+                cout << "FPS must be greater than 0." << endl;
+                return 1;
+            }
+            if (fps > maxFps) {
+                cout << "FPS is capped at 50. Using 50 fps." << endl;
+                fps = maxFps;
+            }
             i++;
         }
     }
